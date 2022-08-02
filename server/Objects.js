@@ -1,0 +1,1 @@
+module.exports.loc= "mongodb+srv://nandhagopal:NandhaAdmin01!@mydb.4lyfk.gcp.mongodb.net/CouponEx?retryWrites=true&w=majority";
