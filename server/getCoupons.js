@@ -8,7 +8,8 @@ module.exports = function (req, res) {
       desc: 1,
       tNdc: 1,
       validTill: 1,
-      company: 1
+      company: 1,
+      couponid: 1
     })
     .then(function (data, err) {
       if (err) {
