@@ -14,11 +14,13 @@ module.exports = function (req, res) {
       } else {
         coupon.couponModel.findOne(
           {},
-          { _id: 0, couponid: 1 },
-          { sort: { created_at: -1 } },
+          { _id: 0, couponid: 1, couponCode: 1 },
+          { sort: { $natural: -1 } },
           function (err, last) {
+            console.log(Number(last.couponid.replace("CoupX", "")) + 1, last);
             req.body.couponid =
-              req.body.couponid + (Number(last.replace("CoupX", "")) + 1);
+              req.body.couponid +
+              (Number(last.couponid.replace("CoupX", "")) + 1);
             var newCoupon = new coupon.couponModel(req.body);
             newCoupon.save(function (err, data) {
               if (err) {
